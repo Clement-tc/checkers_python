@@ -1,7 +1,7 @@
 import pygame
-
+import math
 def draw_board(window_surface,boarder_size):
-
+    """Affiche la grille de jeu"""
     boarder_color=(0,0,0)
     width,length=(pygame.display.Info().current_w,pygame.display.Info().current_w)
     boarder_top=pygame.Rect(0,0,width,20)
@@ -32,25 +32,6 @@ def draw_board(window_surface,boarder_size):
                 else:
                     pygame.draw.rect(window_surface, BLACK, square)
 
-def is_a_move(turn,pawn_coor,square_coor):
-    print(turn)
-    if(turn.name=="player1"):
-        list_of_moves=[(pawn_coor[0]+1,pawn_coor[1]-1),(pawn_coor[0]+1,pawn_coor[1]+1)]
-    else:
-        list_of_moves=[(pawn_coor[0]-1,pawn_coor[1]-1),(pawn_coor[0]-1,pawn_coor[1]+1)]
-
-    if square_coor in list_of_moves:
-        return True
-    return False
-
-def is_a_eat(pawn_coor,square_coor):
-    list_of_moves=[(pawn_coor[0]-2,pawn_coor[1]-2),(pawn_coor[0]-2,pawn_coor[1]+2),(pawn_coor[0]+2,pawn_coor[1]-2),(pawn_coor[0]+2,pawn_coor[1]+2)]
-
-    if square_coor in list_of_moves:
-        print("true")
-        return True
-    print("false")
-    return False
 
 
 """
@@ -65,10 +46,3 @@ self.board=[[None,Piece(self.player1),None,Piece(self.player1),None,Piece(self.p
                     [None,Piece(self.player2),None,Piece(self.player2),None,Piece(self.player2),None,Piece(self.player2),None,Piece(self.player2)],
                     [Piece(self.player2),None,Piece(self.player2),None,Piece(self.player2),None,Piece(self.player2),None,Piece(self.player2),None]]
 """
-
-vectors=[[1,1],[-1,1],[1,-1]]
-
-for vector in vectors:
-    vectors.remove(vector)
-    print(vectors)
-    print(vector)
